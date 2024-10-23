@@ -5,7 +5,8 @@
     --white-color: #fff;
     --black-color: #161823;
 
-    --header-height: 60px;
+    --header-height: 65px;
+    --sidebar-width: 100px;
 
     --font-family: 'ProximaNova', sans-serif;
 }
@@ -68,11 +69,11 @@ html *::-webkit-scrollbar-track {
     src: url('/assets/fonts/TikTokFont-Bold.woff2');
     font-weight: 700;
 }
-// Chiều ngang của trang web trên giao diện pc
-.width-pc {
-    width: 1200px;
-    margin: 0 auto;
-}
+// // Chiều ngang của trang web trên giao diện pc
+// .width-pc {
+//     width: 1200px;
+//     margin: 0 auto;
+// }
 
 //Hủy bỏ mặc định của thẻ
 button,

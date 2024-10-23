@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 
 import Header from '~/Layouts/Components/Header';
 import Sidebar from '~/Layouts/Components/Sidebar';
@@ -11,7 +11,7 @@ function DefaultLayout({ children }) {
         <>
             <Header />
             <div className={cx('container')}>
-                <div className={cx('container--box', 'width-pc')}>
+                <div className={cx('container-box')}>
                     <Sidebar />
                     <div>{children}</div>
                 </div>

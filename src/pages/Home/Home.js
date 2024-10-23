@@ -1,5 +1,12 @@
+import React from 'react';
+import SimpleSlider from './SimpleSlider';
+
 function Home() {
-    return <h1>Home</h1>;
+    return (
+        <>
+            <SimpleSlider />
+        </>
+    );
 }
 
 export default Home;

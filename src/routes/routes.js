@@ -2,7 +2,7 @@
 import config from '~/config';
 
 // Layouts
-import { HeaderOnly } from '~/Layouts';
+// import { HeaderOnly } from '~/Layouts';
 
 // Pages
 import Home from '~/pages/Home';

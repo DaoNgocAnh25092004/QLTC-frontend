@@ -1,0 +1,46 @@
+.slider-container {
+    width: 95%;
+}
+.slide > img {
+    width: 100%;
+    border-radius: 20px;
+
+    height: auto;
+}
+
+/* Slick slider default arrow styles */
+.prev-arrow,
+.next-arrow {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: linear-gradient(270deg, #292929, #161616);
+    box-shadow: 0 3px 6px #00000029;
+    z-index: 1;
+}
+
+.prev-arrow {
+    left: -17px;
+}
+
+.next-arrow {
+    right: -17px;
+}
+
+.prev-arrow > svg,
+.next-arrow > svg {
+    font-size: 15px;
+    color: #000;
+}
+
+/* Slick slider default dots styles */
+
+/* Removing the pseudo-element if it conflicts */
+.prev-arrow::before,
+.next-arrow::before {
+    content: none;
+}

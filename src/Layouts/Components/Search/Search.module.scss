@@ -1,0 +1,22 @@
+.search {
+    width: 400px;
+    height: 40px;
+    border-radius: 25px;
+    border: 2px solid rgb(232, 232, 232);
+    transition: border-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    &:focus-within {
+        border-color: #c4c3c3;
+    }
+}
+.icon-search {
+    margin: 0 15px;
+    color: rgb(128, 128, 128);
+}
+.input {
+    flex: 1;
+    margin-right: 15px;
+    font-size: 15px;
+    color: rgb(128, 128, 128);
+}
