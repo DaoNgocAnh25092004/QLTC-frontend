@@ -111,12 +111,12 @@ const SliderWrapper = styled('div')`
     }
 
     .slick-dots .slick-active {
-        width: 100px;
+        width: 130px;
         transition: width 0.3s ease-in-out;
     }
 
     .slick-dots .slick-active .ft-slick__dots--custom {
-        width: 100px;
+        width: 130px;
         top: -2px;
         overflow: hidden;
 

@@ -1,0 +1,32 @@
+.slogon {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--primary-color);
+}
+.slogon-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.slogon-content {
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 20px;
+}
+
+// Line
+.product-title {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--primary-color);
+}
+.line {
+    margin-top: 10px;
+    object-fit: cover;
+}

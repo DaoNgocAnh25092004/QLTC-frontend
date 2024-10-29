@@ -21,13 +21,13 @@
 .tools {
     display: flex;
     align-items: center;
-    color: rgb(84, 84, 84);
     gap: 20px;
 }
 
 .tool-icon {
     font-size: 18px;
     cursor: pointer;
+    color: var(--primary-color);
 
     &:hover {
         color: #1a1a1a;

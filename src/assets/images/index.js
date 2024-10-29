@@ -7,6 +7,7 @@ const images = {
     slider3: require('~/assets/images/Slider/slider3.webp'),
     slider4: require('~/assets/images/Slider/slider4.webp'),
     slider5: require('~/assets/images/Slider/slider5.webp'),
+    line: require('~/assets/images/line.png'),
 };
 
 export default images;

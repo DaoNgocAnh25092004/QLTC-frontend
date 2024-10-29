@@ -8,6 +8,7 @@ import config from '~/config';
 import Home from '~/pages/Home';
 import Pant from '~/pages/Pant';
 import Shirt from '~/pages/Shirt';
+import Login from '~/pages/Login';
 
 // Routes public
 const publicRoutes = [
@@ -22,6 +23,10 @@ const publicRoutes = [
     {
         path: config.routes.pant,
         component: Pant,
+    },
+    {
+        path: config.routes.login,
+        component: Login,
     },
 ];
 

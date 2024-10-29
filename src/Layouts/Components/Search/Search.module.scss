@@ -18,5 +18,7 @@
     flex: 1;
     margin-right: 15px;
     font-size: 15px;
-    color: rgb(128, 128, 128);
+    &::placeholder {
+        color: rgb(128, 128, 128);
+    }
 }

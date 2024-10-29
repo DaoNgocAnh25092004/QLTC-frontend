@@ -1,10 +1,10 @@
 .container {
-    margin-top: calc(var(--header-height) + 20px);
-    height: 1000vh;
+    margin-top: calc(var(--header-height));
     width: 100%;
 }
 
 .container-box > div:nth-child(2) {
     flex: 1;
-    margin-left: calc(var(--sidebar-width) + 20px);
+    margin: 0 40px 0 calc(var(--sidebar-width) + 40px);
+    padding-top: 20px;
 }
