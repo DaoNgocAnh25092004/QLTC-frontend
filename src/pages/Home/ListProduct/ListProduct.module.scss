@@ -1,0 +1,88 @@
+.list-product {
+    --spacing: 2.5rem;
+    --columns: 5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 50px 0 0 calc(-1 * var(--spacing));
+}
+
+.product {
+    width: calc(calc(100% / var(--columns)) - var(--spacing));
+    margin-left: var(--spacing);
+    margin-bottom: var(--spacing);
+    // overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1),
+        -10px -10px 10px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.15),
+            -10px -10px 10px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.percent-discount {
+    position: absolute;
+    height: 45px;
+    width: 50px;
+    top: -1px;
+    left: 15px;
+    background-color: #ffdea8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+    border: 1px solid #ffdea8;
+    font-weight: 700;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.percent-discount::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    display: inline-block;
+    border-top: 9px solid #ffdea8;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
+
+.product-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-content {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.product-title {
+    font-weight: 550;
+}
+
+.box-price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 0 20px;
+}
+
+.product-price {
+    font-weight: 700;
+}
+.product-sell {
+    opacity: 0.5;
+    text-decoration: line-through;
+}

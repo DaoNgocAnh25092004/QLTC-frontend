@@ -42,7 +42,7 @@ function SimpleSlider() {
         autoplay: true,
         autoplaySpeed: 5000,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
@@ -58,7 +58,7 @@ function SimpleSlider() {
     return (
         <div className={cx('slider-container')}>
             <SliderWrapper>
-                <Slider {...settings}>
+                <Slider {...settings} className={cx('slider')}>
                     <div className={cx('slide')}>
                         <img src={images.slider1} alt="Slide 1" />
                     </div>

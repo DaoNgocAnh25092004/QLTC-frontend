@@ -1,13 +1,14 @@
 const images = {
     noImage: require('~/assets/images/no-image.png'),
-    pant: require('~/assets/images/pant.png'),
-    pantActive: require('~/assets/images/pant-active.png'),
-    slider1: require('~/assets/images/Slider/slider1.webp'),
-    slider2: require('~/assets/images/Slider/slider2.webp'),
-    slider3: require('~/assets/images/Slider/slider3.webp'),
-    slider4: require('~/assets/images/Slider/slider4.webp'),
-    slider5: require('~/assets/images/Slider/slider5.webp'),
+    slider1: require('~/assets/images/Slider/Slider1.png'),
+    slider2: require('~/assets/images/Slider/Slider2.png'),
+    slider3: require('~/assets/images/Slider/Slider3.png'),
+    slider4: require('~/assets/images/Slider/Slider4.png'),
+    slider5: require('~/assets/images/Slider/Slider5.png'),
     line: require('~/assets/images/line.png'),
+    product1: require('~/assets/images/Ảnh game black myth wukong.png'),
+    avatar: require('~/assets/images/user-avatar.png'),
+    coverPhoto: require('~/assets/images/cover-photo.jpg'),
 };
 
 export default images;

@@ -1,8 +1,9 @@
 const routes = {
     home: '/',
-    shirt: '/shirt',
-    pant: '/pant',
     login: '/login',
+    library: '/library',
+    store: '/store',
+    profile: '/profile',
 };
 
 export default routes;

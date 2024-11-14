@@ -1,0 +1,130 @@
+.container {
+    width: 70%;
+    margin: 0 auto;
+    height: 1000vh;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    margin: 0 auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-image: linear-gradient(to right, #f1f1f1, #9b9b9b);
+}
+
+.avatar {
+    position: absolute;
+
+    transform: translateY(-50%);
+    left: 20%;
+    background-color: #fff;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px 0 0 280px;
+}
+
+.title {
+    margin-top: 50px;
+    font-weight: 600;
+}
+.title-list-friend {
+    margin-top: 100px;
+}
+.info {
+    display: flex;
+    gap: 50px;
+}
+
+.info-left {
+    width: 50%;
+}
+
+.info-right {
+    position: relative;
+    width: 50%;
+}
+.box-input {
+    margin-top: 20px;
+}
+
+.box-input > div:nth-child(2) {
+    position: relative;
+}
+
+.box-input > div:nth-child(2) > svg {
+    position: absolute;
+    top: 22px;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgb(232, 232, 232);
+    transition: border-color 0.2s ease-in-out;
+    border-radius: 4px;
+
+    &:focus-within {
+        border-color: #c4c3c3;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
+    }
+    &::placeholder {
+        color: #000;
+        opacity: 1;
+    }
+}
+
+.error {
+    width: 100%;
+    font-size: 15px;
+    color: red;
+}
+
+.input-error {
+    border-color: red;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
+}
+
+.input-avatar input::-webkit-file-upload-button {
+    display: none;
+}
+.input-gender .radio {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.input-gender .radio input {
+    width: 15px;
+    height: 15px;
+}
+
+.input-gender .radio label {
+    margin-left: 10px;
+}
+
+.box-left-btn {
+    margin-top: 40px;
+    display: flex;
+    justify-content: end;
+}

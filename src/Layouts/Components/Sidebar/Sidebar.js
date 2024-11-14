@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Sidebar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import config from '~/config';
-import { faHome, faShirt } from '@fortawesome/free-solid-svg-icons';
-import images from '~/assets/images';
+import { faBook, faHome, faStore } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -19,15 +18,14 @@ function Sidebar() {
                     icon={<FontAwesomeIcon icon={faHome} />}
                 />
                 <MenuItem
-                    title="Áo"
-                    to={config.routes.shirt}
-                    icon={<FontAwesomeIcon icon={faShirt} />}
+                    title="Của hàng"
+                    to={config.routes.store}
+                    icon={<FontAwesomeIcon icon={faStore} />}
                 />
                 <MenuItem
-                    title="Quần"
-                    to={config.routes.pant}
-                    iconImg={images.pant}
-                    iconImgActive={images.pantActive}
+                    title="Thư viện"
+                    to={config.routes.library}
+                    icon={<FontAwesomeIcon icon={faBook} />}
                 />
             </Menu>
         </div>

@@ -117,7 +117,7 @@
 
 .input {
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 20px;
     padding: 12px;
     border: 2px solid rgb(232, 232, 232);
     transition: border-color 0.2s ease-in-out;
@@ -135,8 +135,20 @@
 
 .box-input {
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.error {
+    width: 100%;
+    font-size: 15px;
+    color: red;
+}
+
+.input-error {
+    border-color: red;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
 }
 
 .input-email {
@@ -148,7 +160,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 .box-remember > div:first-child {
     display: flex;
@@ -191,4 +203,22 @@
 }
 .social > div:last-child {
     padding: 4px 0;
+}
+.box-input {
+    position: relative;
+}
+
+.box-input > svg {
+    position: absolute;
+    right: 10px;
+    top: 33px;
+    color: #7a7a7a;
+}
+
+.form-btn-signup {
+    margin-top: 20px;
+}
+
+.password-icon {
+    cursor: pointer;
 }
