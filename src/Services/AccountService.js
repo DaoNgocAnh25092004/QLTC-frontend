@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export const axiosJWT = axios.create();
 
-export const loginUser = async (data) => {
+export const loginAccount = async (data) => {
     try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/login`, data, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/account/login`, data, {
             withCredentials: true,
         });
         return response.data;
@@ -13,9 +13,9 @@ export const loginUser = async (data) => {
     }
 };
 
-export const signUpUser = async (data) => {
+export const signAccount = async (data) => {
     try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/sign-up`, data, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/account/sign-up`, data, {
             withCredentials: true,
         });
         return response.data;
@@ -24,9 +24,9 @@ export const signUpUser = async (data) => {
     }
 };
 
-export const getDetailUser = async (id, accessToken) => {
+export const getDetailAccount = async (id, accessToken) => {
     try {
-        const response = await axiosJWT.get(`${process.env.REACT_APP_API_URL}/user/get-details/${id}`, {
+        const response = await axiosJWT.get(`${process.env.REACT_APP_API_URL}/account/get-details/${id}`, {
             headers: {
                 authorization: accessToken,
             },
@@ -40,7 +40,7 @@ export const getDetailUser = async (id, accessToken) => {
 export const refreshToken = async () => {
     try {
         const response = await axios.post(
-            `${process.env.REACT_APP_API_URL}/user/refresh-token`,
+            `${process.env.REACT_APP_API_URL}/account/refresh-token`,
             {},
             {
                 withCredentials: true,
@@ -54,7 +54,7 @@ export const refreshToken = async () => {
 
 export const logout = async () => {
     try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/logout`);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/account/logout`);
         return response.data;
     } catch (error) {
         throw error;

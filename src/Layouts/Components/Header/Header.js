@@ -20,8 +20,8 @@ import config from '~/config';
 import Image from '~/components/Image';
 import images from '~/assets/images';
 import { MenuHeader } from '~/components/Popper';
-import * as UserService from '~/Services/UserService';
-import { resetUser } from '~/redux/slides/userSlide';
+import * as AccountService from '~/Services/AccountService';
+import { resetAccount } from '~/redux/slides/accountSlide';
 import { ToastContext } from '~/components/ToastMessage';
 
 const cx = className.bind(styles);
@@ -71,11 +71,11 @@ const MENU_ITEMS = [
 
 function Header() {
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.user);
+    const account = useSelector((state) => state.account);
     const { toast } = useContext(ToastContext);
     const navigate = useNavigate();
 
-    const currentUser = user.isLoggedIn;
+    const currentAccount = account.isLoggedIn;
 
     const handleMenuChange = (menuItem) => {
         // Xử lý khi logout
@@ -89,13 +89,13 @@ function Header() {
 
     const handleLogout = async () => {
         // Gửi yêu cầu logout
-        await UserService.logout();
+        await AccountService.logout();
 
         // Xóa access_token trong localStorage
         localStorage.removeItem('access_token');
 
-        // Reset user trong redux
-        dispatch(resetUser());
+        // Reset account trong redux
+        dispatch(resetAccount());
 
         // Hiển thị thông báo
         toast.success('Đăng xuất thành công!');
@@ -111,9 +111,9 @@ function Header() {
 
             <div className={cx('tools')}>
                 <FontAwesomeIcon className={cx('tool-icon')} icon={faBell} />
-                {currentUser ? (
+                {currentAccount ? (
                     <MenuHeader items={MENU_ITEMS} onClickHandle={handleMenuChange}>
-                        <Image src={user.avatar || images.avatar} alt="Đào Ngọc Anh" className={cx('avata-user')} />
+                        <Image src={account.avatar || images.avatar} alt="Đào Ngọc Anh" className={cx('avata-user')} />
                     </MenuHeader>
                 ) : (
                     <Link to={config.routes.login}>
