@@ -70,7 +70,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const dispath = useDispatch();
+    const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
     const { toast } = useContext(ToastContext);
     const navigate = useNavigate();
@@ -95,7 +95,7 @@ function Header() {
         localStorage.removeItem('access_token');
 
         // Reset user trong redux
-        dispath(resetUser());
+        dispatch(resetUser());
 
         // Hiển thị thông báo
         toast.success('Đăng xuất thành công!');

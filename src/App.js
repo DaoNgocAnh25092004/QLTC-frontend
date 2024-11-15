@@ -18,7 +18,7 @@ function App() {
         const handleGetDetailUser = async (id, token) => {
             const detailUser = await UserService.getDetailUser(id, token);
             const detailPlayer = await PlayerService.getDetailPlayer(detailUser.userId, token);
-            console.log('🚀 ~ handleGetDetailUser ~ detailPlayer:', detailPlayer);
+
             // Gộp dữ liệu từ cả hai
             const combinedDetails = {
                 name: detailUser.name,

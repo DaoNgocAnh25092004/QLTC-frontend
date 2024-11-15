@@ -15,6 +15,7 @@ import { useLoginMutation, useSignUpMutation } from '~/hooks/userMutationHook';
 import Spinner from '~/components/Spinner';
 import { ToastContext } from '~/components/ToastMessage';
 import { updateUser } from '~/redux/slides/userSlide';
+import * as PlayerService from '~/Services/PlayerService';
 
 const cx = classNames.bind(styles);
 
@@ -106,8 +107,22 @@ function Login() {
 
     const handleGetDetailUser = async (id, access_token) => {
         const detailUser = await UserService.getDetailUser(id, access_token);
+        const detailPlayer = await PlayerService.getDetailPlayer(detailUser.userId, access_token);
 
-        dispatch(updateUser(detailUser));
+        // Gộp dữ liệu từ cả hai
+        const combinedDetails = {
+            name: detailUser.name,
+            email: detailUser.email,
+            phone: detailUser.phone,
+            avatar: detailPlayer.avatar,
+            address: detailPlayer.address,
+            dayOfBirth: detailPlayer.dob,
+            gender: detailPlayer.gender,
+            userId: detailUser.userId,
+        };
+
+        // Gửi dữ liệu đã gộp vào redux
+        dispatch(updateUser(combinedDetails));
     };
 
     const handleSubmit = () => {
@@ -173,6 +188,8 @@ function Login() {
                     {
                         onSettled: clearLoadingTimeout,
                         onSuccess: (data) => {
+                            navigate('/');
+
                             localStorage.setItem('access_token', JSON.stringify(data?.accessToken));
 
                             if (data?.accessToken) {
@@ -180,8 +197,6 @@ function Login() {
 
                                 handleGetDetailUser(decoded.id, data?.accessToken);
                             }
-
-                            navigate('/');
                         },
                         onError: (error) => {
                             if (

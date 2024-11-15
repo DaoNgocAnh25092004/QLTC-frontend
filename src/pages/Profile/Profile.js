@@ -105,7 +105,6 @@ function Profile() {
                             avatar: formValues.avatar,
                             userId: id,
                         };
-                        console.log(combinedDetails);
                         dispatch(updateUser(combinedDetails));
                     },
                     onError: () => toast.error('Cập nhật thất bại.'),
@@ -122,6 +121,9 @@ function Profile() {
     useEffect(() => {
         const fetchPlayerDetails = async () => {
             const id = user.userId;
+
+            if (!id) return;
+
             const token = JSON.parse(localStorage.getItem('access_token'));
             try {
                 const detailPlayer = await PlayerService.getDetailPlayer(id, token);
