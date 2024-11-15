@@ -10,11 +10,11 @@ import { Facebook, Google } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faPhone, faSignature } from '@fortawesome/free-solid-svg-icons';
 
-import * as UserService from '~/Services/UserService';
+import * as AccountService from '~/Services/AccountService';
 import { useLoginMutation, useSignUpMutation } from '~/hooks/userMutationHook';
 import Spinner from '~/components/Spinner';
 import { ToastContext } from '~/components/ToastMessage';
-import { updateUser } from '~/redux/slides/userSlide';
+import { updateAccount } from '~/redux/slides/accountSlide';
 import * as PlayerService from '~/Services/PlayerService';
 
 const cx = classNames.bind(styles);
@@ -28,7 +28,7 @@ function Login() {
     const [formValues, setFormValues] = useState({
         email: '',
         password: '',
-        name: '',
+        username: '',
         phone: '',
     });
 
@@ -53,8 +53,8 @@ function Login() {
             newErrors.password = 'Mật khẩu phải có ít nhất 6 ký tự.';
         }
 
-        if (isSignup && !formValues.name) {
-            newErrors.name = 'Tên đăng nhập không được để trống.';
+        if (isSignup && !formValues.username) {
+            newErrors.username = 'Tên đăng nhập không được để trống.';
         }
 
         if (isSignup && !formValues.phone) {
@@ -76,7 +76,7 @@ function Login() {
             setFormValues({
                 email: '',
                 password: '',
-                name: '',
+                username: '',
                 phone: '',
             });
             setErrors({});
@@ -102,16 +102,17 @@ function Login() {
         }));
     };
 
-    const mutationLogin = useLoginMutation((data) => UserService.loginUser(data));
-    const mutationSignup = useSignUpMutation((data) => UserService.signUpUser(data));
+    const mutationLogin = useLoginMutation((data) => AccountService.loginAccount(data));
+    const mutationSignup = useSignUpMutation((data) => AccountService.signAccount(data));
 
-    const handleGetDetailUser = async (id, access_token) => {
-        const detailUser = await UserService.getDetailUser(id, access_token);
+    const handleGetDetailAccount = async (id, access_token) => {
+        const detailUser = await AccountService.getDetailAccount(id, access_token);
         const detailPlayer = await PlayerService.getDetailPlayer(detailUser.userId, access_token);
 
         // Gộp dữ liệu từ cả hai
         const combinedDetails = {
-            name: detailUser.name,
+            fullName: detailPlayer.fullName,
+            username: detailUser.username,
             email: detailUser.email,
             phone: detailUser.phone,
             avatar: detailPlayer.avatar,
@@ -122,7 +123,7 @@ function Login() {
         };
 
         // Gửi dữ liệu đã gộp vào redux
-        dispatch(updateUser(combinedDetails));
+        dispatch(updateAccount(combinedDetails));
     };
 
     const handleSubmit = () => {
@@ -145,7 +146,7 @@ function Login() {
                     {
                         email: formValues.email,
                         password: formValues.password,
-                        name: formValues.name,
+                        username: formValues.username,
                         phone: formValues.phone,
                     },
                     {
@@ -158,15 +159,15 @@ function Login() {
                                 setFormValues({
                                     email: '',
                                     password: '',
-                                    name: '',
+                                    username: '',
                                     phone: '',
                                 });
                                 setErrors({});
                             }, 450);
                         },
                         onError: (error) => {
-                            if (error.response && error.response.status === 400 && error.response.data.error === 'name already in use') {
-                                toast.error('Họ tên đăng nhập đã tồn tại!');
+                            if (error.response && error.response.status === 400 && error.response.data.error === 'Username already in use') {
+                                toast.error('Tên đăng nhập đã tồn tại!');
                             } else if (
                                 error.response &&
                                 error.response.status === 400 &&
@@ -195,7 +196,7 @@ function Login() {
                             if (data?.accessToken) {
                                 const decoded = jwtDecode(data?.accessToken);
 
-                                handleGetDetailUser(decoded.id, data?.accessToken);
+                                handleGetDetailAccount(decoded.id, data?.accessToken);
                             }
                         },
                         onError: (error) => {
@@ -301,15 +302,15 @@ function Login() {
                                 <div className={cx('box-input', 'input-name')}>
                                     <input
                                         className={cx('input', {
-                                            'input-error': submitted && errors.name,
+                                            'input-error': submitted && errors.username,
                                         })}
-                                        placeholder="Nhập họ tên của bạn"
-                                        name="name"
-                                        value={formValues.name}
+                                        placeholder="Nhập username của bạn"
+                                        name="username"
+                                        value={formValues.username}
                                         onChange={handleChange}
                                     />
                                     <FontAwesomeIcon icon={faSignature} />
-                                    {errors.name && <p className={cx('error')}>{errors.name}</p>}
+                                    {errors.username && <p className={cx('error')}>{errors.username}</p>}
                                 </div>
                                 <div className={cx('box-input', 'input-email')}>
                                     <input

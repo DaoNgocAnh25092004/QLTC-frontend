@@ -7,21 +7,22 @@ import { publicRoutes } from '~/routes';
 import DefaultLayout from '~/Layouts';
 import ToastMessage from '~/components/ToastMessage';
 import { isJsonString } from './utils';
-import { updateUser } from '~/redux/slides/userSlide';
-import * as UserService from '~/Services/UserService';
+import { updateAccount } from '~/redux/slides/accountSlide';
+import * as UserService from '~/Services/AccountService';
 import * as PlayerService from '~/Services/PlayerService';
 
 function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const handleGetDetailUser = async (id, token) => {
-            const detailUser = await UserService.getDetailUser(id, token);
+        const handleGetDetailAccount = async (id, token) => {
+            const detailUser = await UserService.getDetailAccount(id, token);
             const detailPlayer = await PlayerService.getDetailPlayer(detailUser.userId, token);
 
             // Gộp dữ liệu từ cả hai
             const combinedDetails = {
-                name: detailUser.name,
+                fullName: detailUser.fullName,
+                username: detailUser.username,
                 email: detailUser.email,
                 phone: detailUser.phone,
                 avatar: detailPlayer.avatar,
@@ -32,13 +33,13 @@ function App() {
             };
 
             // Gửi dữ liệu đã gộp vào redux
-            dispatch(updateUser(combinedDetails));
+            dispatch(updateAccount(combinedDetails));
         };
 
         let { storageData, decoded } = handleDecode();
 
         if (decoded?.id) {
-            handleGetDetailUser(decoded.id, storageData);
+            handleGetDetailAccount(decoded.id, storageData);
         }
     }, [dispatch]);
 

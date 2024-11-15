@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    name: '',
+    username: '',
     email: '',
     phone: '',
     avatar: '',
@@ -9,23 +9,23 @@ const initialState = {
     isLoggedIn: false,
 };
 
-export const userSlice = createSlice({
+export const accountSlice = createSlice({
     devTools: true,
-    name: 'user',
+    name: 'account',
     initialState,
     reducers: {
-        updateUser: (state, action) => {
-            const { name, email, phone, userId, avatar } = action.payload;
+        updateAccount: (state, action) => {
+            const { username, email, phone, userId, avatar } = action.payload;
 
-            state.name = name;
+            state.username = username;
             state.email = email;
             state.phone = phone;
             state.isLoggedIn = true;
             state.userId = userId;
             state.avatar = avatar;
         },
-        resetUser: (state, action) => {
-            state.name = '';
+        resetAccount: (state, action) => {
+            state.username = '';
             state.email = '';
             state.phone = '';
             state.isLoggedIn = false;
@@ -36,7 +36,7 @@ export const userSlice = createSlice({
 });
 
 // Export the actions
-export const { updateUser, resetUser } = userSlice.actions;
+export const { updateAccount, resetAccount } = accountSlice.actions;
 
 // Export the reducer
-export default userSlice.reducer;
+export default accountSlice.reducer;

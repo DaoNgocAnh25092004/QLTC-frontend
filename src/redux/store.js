@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './slides/userSlide';
+import accountReducer from './slides/accountSlide';
 
 export const store = configureStore({
     reducer: {
-        user: userReducer,
+        account: accountReducer,
     },
 
     devTools: true,
